@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{% url 'booktest:show' '456' '789' %}">显示</a>
+
+
+
+<!--{{hero.showname}}-->
+<hr>
+奇数行显示红色，偶数行显示蓝色
+<hr>
+{%comment%}
+{#http://blog.csdn.net/xyp84/article/details/7945094#}
+{%endcomment%}
+<ul>
+{%for hero in list%}
+    {%if forloop.counter|divisibleby:"2"%}
+    <li style="color: red">{{forloop.counter}}:{{hero.shoename}}</li>
+    {%else %}
+    <li style="color: blue">{{forloop.counter}}:{{hero.shoename}}</li>
+    {%endif%}
+
+{%empty%}
+    <li>啥也没找着</li>
+{%endfor%}
+</ul>
+</body>
+</html>
